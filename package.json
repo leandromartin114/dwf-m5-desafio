@@ -1,0 +1,13 @@
+{
+	"name": "dwf-m5-desafio",
+	"version": "1.0.0",
+	"source": "src/index.html",
+	"license": "MIT",
+	"scripts": {
+		"dev": "parcel",
+		"build": "parcel build"
+	},
+	"devDependencies": {
+		"parcel": "^2.3.2"
+	}
+}
