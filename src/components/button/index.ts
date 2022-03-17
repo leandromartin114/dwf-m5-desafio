@@ -12,30 +12,26 @@ export function initButton() {
 			const div = document.createElement("div");
 			const style = document.createElement("style");
 			div.innerHTML = `
-			<div class="root">
 				<button class="button">${this.text}</button>
-			</div>
 			`;
 			style.innerHTML = `
 				.root{
 					max-width: 350px;
 				}
 				.button{
-					display: flex;
-					justify-content: center;
-					align-items: center;
+				
 					font-size: 40px;
-					font-weight: 700;
 					background-color: #006CFC;
 					border: 6px solid #001997;
 					border-radius: 8px;
 					width: 100%;
-					padding: 15px 0;
+					padding: 15px 5px;
 					color: white;
 					font-family: 'Odibee Sans', cursive;
 					font-weight: 400;
 				}
 			`;
+			div.classList.add("root");
 			this.shadow.appendChild(div);
 			this.shadow.appendChild(style);
 		}

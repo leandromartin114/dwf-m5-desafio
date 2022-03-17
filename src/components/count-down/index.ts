@@ -7,10 +7,11 @@ export function initCountDown() {
 			this.render();
 		}
 		shadow = this.attachShadow({ mode: "open" });
+		text = this.textContent;
 		render() {
 			const div = document.createElement("div");
 			const style = document.createElement("style");
-			div.textContent = "3";
+			div.textContent = this.text;
 			div.classList.add("root");
 			style.innerHTML = `
                 .root{

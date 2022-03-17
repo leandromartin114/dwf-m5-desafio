@@ -32,17 +32,15 @@ export function initPlay() {
 			const style = document.createElement("style");
 			div.classList.add("root");
 			div.innerHTML = `
-				<img class="img" src=${this.choosePlay(this.type)}>
+				<img class="img" src=${this.choosePlay(this.type)}></img>
 			`;
 			style.innerHTML = `
                 .root{
 					box-sizing: border-box;
-					width: 200px;
-					height: 200px;
                 }
 				.img{
-					width: 200px;
-					height: 200px
+					width: 90px;
+					height: 90px
 				}
             `;
 			this.shadow.appendChild(div);
