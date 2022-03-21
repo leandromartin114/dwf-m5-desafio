@@ -12,6 +12,10 @@ const state = {
 		history: [],
 	},
 	listeners: [],
+	initState() {
+		const savedState = JSON.parse(localStorage.getItem("saved-game"));
+		this.setState(savedState);
+	},
 	getState() {
 		return this.data;
 	},
@@ -20,7 +24,7 @@ const state = {
 		for (const cb of this.listeners) {
 			cb();
 		}
-		localStorage.setItem("saved-game", newState);
+		localStorage.setItem("saved-game", JSON.stringify(newState));
 	},
 	subscribe(callback: (any) => any) {
 		this.listeners.push(callback);
@@ -37,17 +41,23 @@ const state = {
 	pushToHistory(game: Game) {
 		const currentState = this.getState();
 		currentState.history.push(game);
+		this.setState(currentState);
+	},
+	resetHistory() {
+		const currentState = this.getState();
+		currentState.history = [];
+		this.setState(currentState);
 	},
 	defineWinner(myMove: Move, computerMove: Move) {
 		const drawGame = [
-			{ myPlay: "piedra", pcPlay: "piedra", result: "¡Draw Game!" },
-			{ myPlay: "papel", pcPlay: "papel", result: "¡Draw Game!" },
-			{ myPlay: "tijera", pcPlay: "tijera", result: "¡Draw Game!" },
+			{ myPlay: "piedra", pcPlay: "piedra", result: "¡It's a Tie!" },
+			{ myPlay: "papel", pcPlay: "papel", result: "¡It's a Tie!" },
+			{ myPlay: "tijera", pcPlay: "tijera", result: "¡It's a Tie!" },
 		];
 		const winGame = [
-			{ myPlay: "piedra", pcPlay: "tijera", result: "¡You Win!" },
-			{ myPlay: "papel", pcPlay: "piedra", result: "¡You Win!" },
-			{ myPlay: "tijera", pcPlay: "papel", result: "¡You Win!" },
+			{ myPlay: "piedra", pcPlay: "tijera", result: "¡You Won!" },
+			{ myPlay: "papel", pcPlay: "piedra", result: "¡You Won!" },
+			{ myPlay: "tijera", pcPlay: "papel", result: "¡You Won!" },
 		];
 		const lostGame = [
 			{ myPlay: "piedra", pcPlay: "papel", result: "¡You Lost!" },
@@ -57,17 +67,17 @@ const state = {
 
 		for (const i of drawGame) {
 			if (i.myPlay == myMove && i.pcPlay == computerMove) {
-				console.log(i.result);
+				return i.result;
 			}
 		}
 		for (const a of winGame) {
 			if (a.myPlay == myMove && a.pcPlay == computerMove) {
-				console.log(a.result);
+				return a.result;
 			}
 		}
 		for (const x of lostGame) {
 			if (x.myPlay == myMove && x.pcPlay == computerMove) {
-				console.log(x.result);
+				return x.result;
 			}
 		}
 	},

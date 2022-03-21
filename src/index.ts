@@ -8,6 +8,7 @@ import { initRouter } from "./router";
 import { state } from "./state";
 
 function main() {
+	state.initState();
 	initText();
 	initButton();
 	initCountDown();

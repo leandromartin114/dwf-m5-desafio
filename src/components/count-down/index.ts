@@ -17,8 +17,8 @@ export function initCountDown() {
                 .root{
                     border: 20px solid black;
                     border-radius: 100%;
-                    width: 240px;
-                    height: 240px;
+                    width: 220px;
+                    height: 220px;
                     display: flex;
                     justify-content: center;
                     align-items: center;

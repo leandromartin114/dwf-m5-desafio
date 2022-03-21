@@ -5,9 +5,9 @@ export function initHomepage(params) {
                 <my-text class="text" tag="h1">Piedra Papel o Tijera</my-text>
                 <my-button class="button">Empezar</my-button>
                 <div class="moves">
-                    <div ><my-play type="piedra"></></div>
-                    <div ><my-play type="papel"></></div>
-                    <div ><my-play type="tijera"></></div>
+                    <div ><my-play type="piedra" tag="small"></></div>
+                    <div ><my-play type="papel" tag="small"></></div>
+                    <div ><my-play type="tijera" tag="small"></></div>
                 </div>
             `;
 	div.classList.add("content");

@@ -5,6 +5,11 @@ font-family: 'Odibee Sans', cursive; */
 }
 body {
 	margin: 0;
-	background-color: rgb(250, 245, 219);
+	background-color: #eef1c0;
 	font-family: "Fredoka", sans-serif;
+}
+.root {
+	height: 100vh;
+	margin: 0;
+	padding: 0;
 }

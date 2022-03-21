@@ -1,12 +1,13 @@
 import { initHomepage } from "./pages/home";
 import { initInstructionspage } from "./pages/instructions";
 import { initGamepage } from "./pages/game";
+import { initResultpage } from "./pages/result";
 export function initRouter(container: Element) {
 	const routes = [
 		{ path: /\/home/, component: initHomepage },
 		{ path: /\/instructions/, component: initInstructionspage },
 		{ path: /\/game/, component: initGamepage },
-		// { path: /\/result/, component: initResultpage },
+		{ path: /\/result/, component: initResultpage },
 	];
 	function goTo(path) {
 		history.pushState({}, "", path);

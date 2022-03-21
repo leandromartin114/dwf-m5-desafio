@@ -3,7 +3,7 @@ export function initInstructionspage(params) {
 	const style = document.createElement("style");
 	div.innerHTML = `
                 <my-text class="text" tag="p">Presioná jugar
-                y elegí: piedra, papel o tijera antes de que pasen los 3 segundos.</my-text>
+                y elegí: piedra, papel o tijera antes de que pasen los 5 segundos.</my-text>
                 <my-button class="button">Jugar</my-button>
                 <div class="moves">
                     <div ><my-play type="piedra"></></div>
