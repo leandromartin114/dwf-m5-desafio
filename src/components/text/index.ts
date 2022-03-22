@@ -10,7 +10,7 @@ export function initText() {
 			this.render();
 		}
 		text = this.textContent;
-		tags: string[] = ["h1", "p"];
+		tags: string[] = ["h1", "h3", "h4", "p"];
 		tag: string = "p";
 		shadow = this.attachShadow({ mode: "open" });
 		render() {
@@ -25,6 +25,18 @@ export function initText() {
                     font-weight: 700;
                     text-align: center;
                 }
+				h3{
+					margin: 0 0 15px 0;
+                    font-size: 42px;
+                    text-align: center;
+                    font-weight: 700;
+				}
+				h4{
+					margin: 0;
+                    font-size: 32px;
+                    text-align: right;
+                    font-weight: 400;
+				}
                 p{
 					margin: 0;
                     font-size: 45px;

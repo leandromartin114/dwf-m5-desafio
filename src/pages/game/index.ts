@@ -51,11 +51,9 @@ export function initGamepage(params) {
 	div.appendChild(style);
 	const piedraEl = div.querySelector(".piedra");
 	piedraEl.addEventListener("play", (e: any) => {
-		console.log(e.detail.value);
 		const myMove = e.detail.value;
 		state.setMove(myMove);
-		const currentState = state.getState();
-		const pcMove = currentState.currentGame.pcGame;
+		const pcMove = state.getState().currentGame.pcGame;
 		div.firstChild?.remove();
 		div.innerHTML = `
 		<div class="result">
@@ -85,11 +83,9 @@ export function initGamepage(params) {
 	});
 	const papelEl = div.querySelector(".papel");
 	papelEl.addEventListener("play", (e: any) => {
-		console.log(e.detail.value);
 		const myMove = e.detail.value;
 		state.setMove(myMove);
-		const currentState = state.getState();
-		const pcMove = currentState.currentGame.pcGame;
+		const pcMove = state.getState().currentGame.pcGame;
 		div.firstChild?.remove();
 		div.innerHTML = `
 		<div class="result">
@@ -119,11 +115,9 @@ export function initGamepage(params) {
 	});
 	const tijeraEl = div.querySelector(".tijera");
 	tijeraEl.addEventListener("play", (e: any) => {
-		console.log(e.detail.value);
 		const myMove = e.detail.value;
 		state.setMove(myMove);
-		const currentState = state.getState();
-		const pcMove = currentState.currentGame.pcGame;
+		const pcMove = state.getState().currentGame.pcGame;
 		div.firstChild?.remove();
 		div.innerHTML = `
 		<div class="result">

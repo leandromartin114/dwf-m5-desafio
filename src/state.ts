@@ -13,8 +13,19 @@ const state = {
 	},
 	listeners: [],
 	initState() {
-		const savedState = JSON.parse(localStorage.getItem("saved-game"));
-		this.setState(savedState);
+		if (localStorage.getItem("saved-game")) {
+			const savedState = JSON.parse(localStorage.getItem("saved-game"));
+			this.setState(savedState);
+		} else {
+			const initialState = {
+				currentGame: {
+					userGame: "",
+					pcGame: "",
+				},
+				history: [],
+			};
+			this.setState(initialState);
+		}
 	},
 	getState() {
 		return this.data;
@@ -22,7 +33,7 @@ const state = {
 	setState(newState) {
 		this.data = newState;
 		for (const cb of this.listeners) {
-			cb();
+			cb(newState);
 		}
 		localStorage.setItem("saved-game", JSON.stringify(newState));
 	},
@@ -36,7 +47,10 @@ const state = {
 		let i = Math.floor(Math.random() * moves.length);
 		const pcMove = moves[i];
 		currentState.currentGame.pcGame = pcMove;
-		this.pushToHistory(currentState.currentGame);
+		this.pushToHistory({
+			userGame: move,
+			pcGame: pcMove,
+		});
 	},
 	pushToHistory(game: Game) {
 		const currentState = this.getState();
@@ -49,12 +63,12 @@ const state = {
 		this.setState(currentState);
 	},
 	defineWinner(myMove: Move, computerMove: Move) {
-		const drawGame = [
+		const tieGame = [
 			{ myPlay: "piedra", pcPlay: "piedra", result: "¡It's a Tie!" },
 			{ myPlay: "papel", pcPlay: "papel", result: "¡It's a Tie!" },
 			{ myPlay: "tijera", pcPlay: "tijera", result: "¡It's a Tie!" },
 		];
-		const winGame = [
+		const wonGame = [
 			{ myPlay: "piedra", pcPlay: "tijera", result: "¡You Won!" },
 			{ myPlay: "papel", pcPlay: "piedra", result: "¡You Won!" },
 			{ myPlay: "tijera", pcPlay: "papel", result: "¡You Won!" },
@@ -65,12 +79,12 @@ const state = {
 			{ myPlay: "tijera", pcPlay: "piedra", result: "¡You Lost!" },
 		];
 
-		for (const i of drawGame) {
+		for (const i of tieGame) {
 			if (i.myPlay == myMove && i.pcPlay == computerMove) {
 				return i.result;
 			}
 		}
-		for (const a of winGame) {
+		for (const a of wonGame) {
 			if (a.myPlay == myMove && a.pcPlay == computerMove) {
 				return a.result;
 			}

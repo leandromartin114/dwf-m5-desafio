@@ -76,7 +76,6 @@ export function initPlay() {
 				border: 8px solid white;
 				border-radius: 100%;
 				transition: border 0.5s;
-				
 			}
 			.large{
 				width: 200px;
