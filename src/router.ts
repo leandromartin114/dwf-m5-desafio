@@ -32,12 +32,12 @@ export function initRouter(container: Element) {
 			}
 		}
 	}
-	if (location.host.includes("github.io")) {
-		handleRoute("/home");
-	}
-	if (location.pathname == "/") {
-		handleRoute("/home");
+	if (location.pathname == "/" || location.pathname == "/dwf-m5-desafio/") {
+		goTo("/home");
 	} else {
 		handleRoute(location.pathname);
 	}
+	window.onpopstate = () => {
+		handleRoute(location.pathname);
+	};
 }
