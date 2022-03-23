@@ -49,8 +49,8 @@ export function initGamepage(params) {
 		if (counter == 0) {
 			clearInterval(interval);
 			Swal.fire({
-				title: "¡You don't choose your play!",
-				text: "Remember you must choose before the 5 seconds",
+				title: "You didn't choose!",
+				text: "Remember, you must choose before the countdown ends",
 				icon: "warning",
 				confirmButtonColor: "#006CFC",
 			});

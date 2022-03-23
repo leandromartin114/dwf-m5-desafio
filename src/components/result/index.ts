@@ -17,15 +17,15 @@ export function initResult() {
 			const style = document.createElement("style");
 			if (this.type == "tie") {
 				div.classList.add("tie");
-				div.textContent = "¡It's a Tie!";
+				div.textContent = "It's a Tie!";
 			}
 			if (this.type == "won") {
 				div.classList.add("won");
-				div.textContent = "¡You Won!";
+				div.textContent = "You Won!";
 			}
 			if (this.type == "lost") {
 				div.classList.add("lost");
-				div.textContent = "¡You Lost!";
+				div.textContent = "You Loose!";
 			}
 			div.classList.add("root");
 			style.innerHTML = `
