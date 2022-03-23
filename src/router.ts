@@ -32,6 +32,9 @@ export function initRouter(container: Element) {
 			}
 		}
 	}
+	if (location.host.includes("github.io")) {
+		handleRoute("/home");
+	}
 	if (location.pathname == "/") {
 		handleRoute("/home");
 	} else {
