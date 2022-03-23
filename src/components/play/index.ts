@@ -23,8 +23,11 @@ export function initPlay() {
 			this.render();
 		}
 		addListeners() {
-			const imgEl = this.shadow.querySelector(".img");
+			const imgEl: HTMLElement = this.shadow.querySelector(".img");
 			imgEl.addEventListener("click", (e: any) => {
+				imgEl.style.border = "10px solid #53555c";
+				imgEl.style.borderRadius = "100%";
+				imgEl.style.transition = "border 0.6s";
 				const myEvent = new CustomEvent("play", {
 					detail: {
 						value: this.type,
@@ -73,13 +76,27 @@ export function initPlay() {
 				height: 100px;
 			}
 			.medium:hover{
-				border: 8px solid white;
+				border: 5px solid rgba(208, 212, 214, 0.918);
 				border-radius: 100%;
-				transition: border 0.5s;
+				transition: border 0.3s;
 			}
 			.large{
-				width: 200px;
-				height: 200px;
+				width: 180px;
+				height: 180px;
+			}
+			@media (min-width: 969px){
+				.small{
+					width: 95px;
+					height: 95px;
+				}
+				.medium{
+					width: 120px;
+					height: 120px;
+				}
+				.large{
+					width: 220px;
+					height: 220px;
+				}
 			}
             `;
 			this.shadow.appendChild(div);

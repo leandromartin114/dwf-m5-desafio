@@ -2,9 +2,9 @@ export function initInstructionspage(params) {
 	const div = document.createElement("div");
 	const style = document.createElement("style");
 	div.innerHTML = `
-                <my-text class="text" tag="p">Presioná jugar
-                y elegí: piedra, papel o tijera antes de que pasen los 5 segundos.</my-text>
-                <my-button class="button">Jugar</my-button>
+                <my-text class="text" tag="p">Press "Play" and choose: 
+                rock, paper or scissors before the countdown ends.</my-text>
+                <my-button class="button">Play</my-button>
                 <div class="moves">
                     <div ><my-play type="piedra"></></div>
                     <div ><my-play type="papel"></></div>
@@ -22,7 +22,7 @@ export function initInstructionspage(params) {
                     align-items: center;
                 }
                 .text{
-                    max-width: 385px;
+                    width: 300px;
                 }
                 .button{
                     width: 300px;
@@ -32,7 +32,17 @@ export function initInstructionspage(params) {
                     width: 300px;
 					justify-content: space-between;
                 }
-
+                @media (min-width: 969px){
+                    .text{
+                        width: 350px;
+                    }
+                    .button{
+                        width: 350px;
+                    }
+                    .moves{
+                        width: 350px;
+                    }
+                }
             `;
 	div.appendChild(style);
 	const button = div.querySelector(".button");

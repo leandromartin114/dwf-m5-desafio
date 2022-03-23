@@ -17,31 +17,39 @@ export function initResult() {
 			const style = document.createElement("style");
 			if (this.type == "tie") {
 				div.classList.add("tie");
-				div.textContent = "¡Empate!";
+				div.textContent = "¡It's a Tie!";
 			}
 			if (this.type == "won") {
 				div.classList.add("won");
-				div.textContent = "¡Ganaste!";
+				div.textContent = "¡You Won!";
 			}
 			if (this.type == "lost") {
 				div.classList.add("lost");
-				div.textContent = "¡Perdiste!";
+				div.textContent = "¡You Lost!";
 			}
 			div.classList.add("root");
 			style.innerHTML = `
                 .root{
-                    border: 10px solid black;
-                    border-radius: 100%;
-                    width: 230px;
-                    height: 230px;
+                    border: 7px solid black;
+                    border-radius: 50%;
+                    width: 240px;
+                    height: 120px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
 					font-family: 'Odibee Sans', cursive;
-                    font-size: 55px;
+                    font-size: 45px;
                     font-weight: 400;
                     color: black;
                 }
+				@media (min-width: 969px){
+					.root{
+						border: 10px solid black;
+						width: 290px;
+						height: 140px;
+						font-size: 55px;
+					}
+				}
 				.tie{
 					background-color: #f3cd21;
 				}

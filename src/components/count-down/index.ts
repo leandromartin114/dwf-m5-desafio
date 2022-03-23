@@ -17,8 +17,8 @@ export function initCountDown() {
                 .root{
                     border: 20px solid black;
                     border-radius: 100%;
-                    width: 220px;
-                    height: 220px;
+                    width: 210px;
+                    height: 210px;
                     display: flex;
                     justify-content: center;
                     align-items: center;
@@ -26,6 +26,12 @@ export function initCountDown() {
                     font-weight: 700;
 					font-family: 'Odibee Sans', cursive;
                 }
+				@media (min-width: 969px){
+					.root{
+						width: 250px;
+						height: 250px;
+					}
+				}
             `;
 			this.shadow.appendChild(div);
 			this.shadow.appendChild(style);

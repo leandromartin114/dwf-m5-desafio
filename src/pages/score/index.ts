@@ -1,5 +1,5 @@
 import { state } from "../../state";
-export function initResultpage(params) {
+export function initScorepage(params) {
 	const div = document.createElement("div");
 	const style = document.createElement("style");
 	renderPage();
@@ -7,33 +7,11 @@ export function initResultpage(params) {
 		renderPage();
 	});
 	function renderPage() {
-		let type = "";
 		let tieCounter = 0;
 		let wonCounter = 0;
 		let lostCounter = 0;
-		const currentGame = state.getState().currentGame;
 		const results = state.getState().history;
-		if (
-			state.defineWinner(currentGame.userGame, currentGame.pcGame) ==
-			"¡It's a Tie!"
-		) {
-			type = "tie";
-		}
-		if (
-			state.defineWinner(currentGame.userGame, currentGame.pcGame) ==
-			"¡You Won!"
-		) {
-			type = "won";
-		}
-		if (
-			state.defineWinner(currentGame.userGame, currentGame.pcGame) ==
-			"¡You Lost!"
-		) {
-			type = "lost";
-		}
 		div.classList.add("content");
-		div.classList.add(type);
-
 		for (const r of results) {
 			if (state.defineWinner(r.userGame, r.pcGame) == "¡It's a Tie!") {
 				tieCounter++;
@@ -46,7 +24,7 @@ export function initResultpage(params) {
 			}
 		}
 		div.innerHTML = `
-					<my-result type="${type}"></my-result>
+                    <my-text class="text" tag="h1">Score</my-text>
 					<div class="special">
 						<div class="score">
 							<my-text tag="h3">Score</my-text>
@@ -56,7 +34,7 @@ export function initResultpage(params) {
 						</div>
 						<my-button type="reset" class="reset">Reset Game</my-button>
 					</div>
-					<my-button class="button play">Play Again</my-button>
+					<my-button class="button play">Play</my-button>
 					<my-button class="button home">Home</my-button>
 				`;
 		style.innerHTML = `
@@ -65,7 +43,7 @@ export function initResultpage(params) {
 						height: 100vh;
 						display: flex;
 						flex-direction: column;
-						justify-content: space-between;
+						justify-content: space-around;
 						align-items: center;
 					}
 					.tie{
@@ -80,37 +58,37 @@ export function initResultpage(params) {
 					.score{
 						border: 8px solid black;
 						border-radius: 8px;
-						width: 250px;
-						height: 180px;
+						width: 260px;
+						height: 195px;
 						background-color: white;
 						color: black;
-						padding: 7px 10px;
+						padding: 8px 12px;
 						display: flex;
 						justify-content: center;
 						flex-direction: column;
 						font-family: 'Odibee Sans', cursive;
 					}
 					.button{
-						width: 250px;
+						width: 260px;
 					}
 					.special{
-						width: 250px;
+						width: 260px;
 						display: grid;
-						gap: 4px
+						gap: 5px
 					}
 					@media (min-width: 969px){
 						.score{
 							border: 10px solid black;
-							width: 290px;
-							height: 200px;
-							padding: 10px 12px;
+							width: 300px;
+							height: 210px;
+							padding: 12px 15px;
 						}
 						.button{
-							width: 290px;
+							width: 300px;
 						}
 						.special{
-							width: 290px;
-							gap: 5px;
+							width: 300px;
+							gap: 8px;
 						}
 					}
 				`;
